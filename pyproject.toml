@@ -1,0 +1,64 @@
+[project]
+name = "Bank-B2B-Next-Best-Offer"
+version = "0.1.0"
+description = "Predictive model to identify the next best banking product for business clients (B2B). Focused on optimizing commercial offers based on transactional and behavioral data."
+authors = [
+    "Juan Gomez <jgomezja@unal.edu.co>",
+]
+requires-python = ">=3.11"
+readme = "README.md"
+
+dependencies = [
+
+]
+
+[project.urls]
+documentation = "https://juan-gomezj4.github.io/ml-bank-nbp-b2b"
+repository = "https://github.com/juan-gomezj4/ml-bank-nbp-b2b"
+
+
+[dependency-groups]
+dev = [
+    "pre-commit>=4.1.0", # Code linting and formatting
+    "pytest>=8.3.4", # Testing framework
+    "pytest-cookies>=0.7.0",
+    "pytest-cov>=6.0.0",
+    "cruft[pyproject]>=2.15.0", # Automated Cookiecutter template synchronization
+    "pandas>=2.2.3",
+    "numpy>=2.2.4",
+    "ipykernel>=6.29.5",
+    "jupyter>=1.1.1",
+]
+
+#
+docs = [
+    "mkdocs>=1.6.1",
+    "mkdocs-material>=9.5.49",
+    "mkdocstrings[python]>=0.28.1",
+    "pymdown-extensions>=10.14.3",
+]
+#
+
+[tool.uv]
+package = false
+default-groups = [
+    "dev",
+#
+    "docs",
+#
+]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+testpaths = ["tests"]
+
+[tool.coverage.paths]
+source = ["src/"]
+
+[tool.coverage.run]
+source = ["src"]
+omit = ["**/__init__.py"]
